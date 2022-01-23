@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "YoutubeToMP3-Login-Backend.Tests": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
