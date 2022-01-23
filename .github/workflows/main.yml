@@ -32,4 +32,4 @@ jobs:
           context: .
           file: ./Login-Backend/YoutubeToMP3-Login-Backend/Dockerfile
           push: true
-          tags: ${{ secrets.CI_REGISTRY_USER }}/individueels3:api
+          tags: ${{ secrets.CI_REGISTRY_USER }}/youtubetomp3:api
