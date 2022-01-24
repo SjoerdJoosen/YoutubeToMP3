@@ -3,18 +3,19 @@ WORKDIR /app
 EXPOSE 5001
 EXPOSE 5000
 
-ENV ASPNETCORE_URLS=http://+:5000
+ENV ASPNETCORE_URLS=http://+:5010
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["YoutubeToMP3-Login-Backend.csproj", "./"]
+COPY ["./Login-Backend/YoutubeToMP3-Login-Backend/YoutubeToMP3-Login-Backend.csproj", "./"]
 RUN dotnet restore "YoutubeToMP3-Login-Backend.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "YoutubeToMP3-Login-Backend.csproj" -c Release -o /app/build
+RUN dotnet build "./Login-Backend/YoutubeToMP3-Login-Backend/YoutubeToMP3-Login-Backend.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "YoutubeToMP3-Login-Backend.csproj" -c Release -o /app/publish
+RUN dotnet publish "./Login-Backend/YoutubeToMP3-Login-Backend/YoutubeToMP3-Login-Backend.csproj" -c Release -o /app/publish
+RUN dotnet dev-certs https --trust
 
 FROM base AS final
 WORKDIR /app
