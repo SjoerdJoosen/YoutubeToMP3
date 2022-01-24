@@ -15,7 +15,6 @@ RUN dotnet build "./Login-Backend/YoutubeToMP3-Login-Backend/YoutubeToMP3-Login-
 
 FROM build AS publish
 RUN dotnet publish "./Login-Backend/YoutubeToMP3-Login-Backend/YoutubeToMP3-Login-Backend.csproj" -c Release -o /app/publish
-RUN dotnet dev-certs https --trust
 
 FROM base AS final
 WORKDIR /app
